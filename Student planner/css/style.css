@@ -34,3 +34,59 @@ body{
     font-family: "Poppins", sans-serif;
 
 }
+
+main{
+
+    background-color: #EEE1C5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height:100vh;
+}
+
+#logo{
+
+    width: 40vw;
+
+    max-width: 430px;
+
+    height: auto;
+
+    margin-bottom: 20px;
+
+}
+
+#start-button{
+
+    background-color: #28324A;
+
+    padding: 12px 25px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: medium;
+
+    transition: 0.3s;
+
+    width: 285px;
+
+    height: 54px;
+
+}
+
+#start-button:hover{
+
+    background-color: #41517A;
+}
