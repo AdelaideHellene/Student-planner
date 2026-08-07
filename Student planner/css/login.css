@@ -1,0 +1,179 @@
+/* Login page layout */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+main{
+
+    display:flex;
+    flex-direction:row; /* makes them sit side by side */
+    min-height:100vh;
+
+}
+
+
+/* Left side - Logo */
+
+.left-side{
+
+    width:50%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-color:#EEE1C5;
+
+}
+
+
+/* Logo */
+
+#logo{
+
+    width:40vw;
+    max-width:430px;
+    min-width:200px;
+
+    height:auto;
+
+    margin-bottom:20px;
+
+}
+
+
+/* Right side - Login card */
+
+.right-side{
+
+    width: 400px;
+
+    height: 500px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:15px;
+
+    padding:40px;
+
+    background-color:#F7F2E8;
+
+    border-radius:35px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+
+}
+
+
+.right-side h1{
+
+    text-align:center;
+
+}
+
+
+.right-side p{
+
+    text-align:center;
+
+}
+
+
+/* Form */
+
+#login-form{
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+#login-form input{
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:15px;
+
+}
+
+
+/* Button */
+
+#loginButton{
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background-color:#28324A;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+}
+
+
+#loginButton:hover{
+
+    transform:translateY(-2px);
+
+    opacity:0.9;
+
+}
+
+
+/* Mobile responsiveness */
+
+@media(max-width:768px){
+
+    main{
+
+        flex-direction:column;
+
+    }
+
+
+    .left-side{
+
+        width:100%;
+        height:40vh;
+
+    }
+
+
+    .right-side{
+
+        width:90%;
+
+        margin:auto;
+
+    }
+
+}
