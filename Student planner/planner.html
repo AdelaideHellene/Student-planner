@@ -1,128 +1,309 @@
 <!DOCTYPE html>
 <html>
-    <head>
-         <link rel="stylesheet" href="/css/planner.css">
 
-    </head>
-    <body>
-         <aside id="sidebar">
-            <div class="sidebar-content">
-            <img src="/assets/actual logo.png" alt="Student planner logo" id="logo">
-                <nav>
-                    <a href="dashboard.html">Dashboard</a>
-                    <a href="planner.html">Planner</a>
-                </nav>
+<head>
+
+    <title>Student Planner - Planner</title>
+
+    <link rel="stylesheet" href="css/planner.css">
+
+</head>
+
+
+<body>
+
+
+<div class="app-layout">
+
+
+
+    <!-- SIDEBAR -->
+
+    <aside id="sidebar">
+
+
+        <div class="sidebar-content">
+
+
+            <img 
+            src="assets/actual logo.png" 
+            alt="Student planner logo" 
+            id="logo">
+
+
+
+            <nav>
+
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+
+                <a href="planner.html">
+                    Planner
+                </a>
+
+
+            </nav>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+
+
+
+        <!-- GREETING CARD -->
+
+        <div class="planner-section">
+
+
+            <div class="greeting-section">
+
+
+                <h1>
+                    Let's plan your study
+                </h1>
+
+
+
+                <p>
+                    Nothing will work unless you do
+                </p>
+
+
             </div>
-            </aside>
 
-        <main>
-            <div class="planner-section">
 
-                <!--Greeting card-->
+        </div>
 
-                <div class="greeting-section">
-                    <h1>Let's plan your study</h1>
-                    <p>Nothing will work unless you do</p>
-                </div>
-            </div>
-            
-            <!--Planner grid-->
 
-            <div class="planner-grid">
-                
-                <!--Subject card-->
 
-                <div class="subject-card">
-                    <h3>My Subjects</h3>
-                    <p>
-                        Add your school subjects once
-                    </p>
 
-                    <div class="subject-input-section">
-                        <input
-                        id="subjectInput"
-                        type="text"
-                        placeholder="Enter subject"
-                        required>
 
-                        <button
-                        type="button"
-                        id="addSubjectButton"
-                       >Add subject</button>
-                    </div>
 
-                    <ul id="subjectList"></ul>
-                </div>
 
-                <!--Study session card-->
 
-                <div class="study-session-card">
-                    <h3>Create study session</h3>
 
-                    <label
-                    for="subjectDropdown">Subject</label>
-                    <select id="subjectDropdown">
+        <!-- PLANNER GRID -->
 
-                        <option value="" selected disabled>
+        <div class="planner-grid">
 
-                            Select Subject
 
-                        </option>
 
-                    </select>
 
-                    <label
-                    for="subjectTopic">Topic</label>
+
+            <!-- SUBJECT CARD -->
+
+            <div class="subject-card">
+
+
+                <h3>
+                    My Subjects
+                </h3>
+
+
+                <p>
+                    Add your school subjects once
+                </p>
+
+
+
+
+                <div class="subject-input-section">
+
 
                     <input
-                        type="text"
-                        id="topicInput"
-                        placeholder="What are you studying?"
-                        required>
+                    id="subjectInput"
+                    type="text"
+                    placeholder="Enter subject">
 
-                    <label
-                    for="sessionDate">Date</label>
 
-                    <input
-                        type="date"
-                        id="sessionDate"
-                        required>
 
-                    <label
-                    for="sessionTime">Time</label>
 
-                    <input
-                        type="time"
-                        id="sessionTime"
-                        required>
 
-                    <button 
+                    <button
                     type="button"
-                    id="addSessionButton">
+                    id="addSubjectButton">
 
-                        Add Study Session
+                        Add subject
 
                     </button>
 
-                </div>
 
-                <!-- UPCOMING SESSIONS -->
-
-                <div class="sessions-card">
-
-                    <h3>Upcoming Study Sessions</h3>
-
-                    <ul id="sessionList"></ul>
 
                 </div>
+
+
+
+
+
+                <ul id="subjectList"></ul>
+
 
 
             </div>
 
 
-        </main>
 
-    </body>
+
+
+
+
+
+
+            <!-- STUDY SESSION CARD -->
+
+            <div class="study-session-card">
+
+
+                <h3>
+                    Create Study Session
+                </h3>
+
+
+
+
+                <label for="subjectDropdown">
+                    Subject
+                </label>
+
+
+                <select id="subjectDropdown">
+
+
+                    <option value="" selected disabled>
+                        Select Subject
+                    </option>
+
+
+                </select>
+
+
+
+
+
+
+                <label for="topicInput">
+                    Topic
+                </label>
+
+
+                <input
+                type="text"
+                id="topicInput"
+                placeholder="What are you studying?">
+
+
+
+
+                <label for="sessionDate">
+                    Date
+                </label>
+
+
+                <input
+                type="date"
+                id="sessionDate">
+
+
+
+
+
+
+                <label for="sessionTime">
+                    Time
+                </label>
+
+
+                <input
+                type="time"
+                id="sessionTime">
+
+
+
+
+
+
+                <button
+                type="button"
+                id="addSessionButton">
+
+                    Add Study Session
+
+                </button>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- UPCOMING SESSIONS -->
+
+            <div class="sessions-card">
+
+
+                <h3>
+                    Upcoming Study Sessions
+                </h3>
+
+
+
+                <ul id="sessionList"></ul>
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </main>
+
+
+
+
+</div>
+
+
+
+
+
+
+<script src="js/planner.js"></script>
+
+
+</body>
 
 
 </html>

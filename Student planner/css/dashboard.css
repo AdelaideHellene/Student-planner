@@ -1,0 +1,622 @@
+/* ==========================
+GENERAL STYLE
+========================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    background-color:#FFFCF4;
+
+    color:#4A3B45;
+
+}
+
+
+
+/* ==========================
+PAGE LAYOUT
+========================== */
+
+.app-layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+
+
+/* ==========================
+SIDEBAR
+========================== */
+
+
+#sidebar{
+
+    width:200px;
+
+    min-height:100vh;
+
+    background-color:#EEE1C5;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:30px 20px;
+
+}
+
+
+
+.sidebar-content{
+
+    width:100%;
+
+}
+
+
+
+#sidebar img{
+
+    width:100px;
+
+    display:block;
+
+    margin:0 auto 40px;
+
+}
+
+
+
+#sidebar nav{
+
+    width:100%;
+
+}
+
+
+
+#sidebar a{
+
+    display:block;
+
+    width:100%;
+
+    text-decoration:none;
+
+    color:#6B4F5F;
+
+    padding:12px;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    transition:0.3s;
+
+}
+
+
+
+#sidebar a:hover{
+
+    background-color:#202D4E;
+
+    color:white;
+
+}
+
+
+
+/* ==========================
+MAIN DASHBOARD
+========================== */
+
+
+main{
+
+    flex:1;
+
+    padding:35px;
+
+}
+
+
+
+/* ==========================
+GREETING CARD
+========================== */
+
+
+.greeting-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
+
+    margin-bottom:30px;
+
+}
+
+
+
+.greeting-card h1{
+
+    color:#6B4F5F;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.greeting-card p{
+
+    color:#777;
+
+}
+
+
+
+/* ==========================
+DASHBOARD GRID
+========================== */
+
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+
+
+/* ==========================
+TASK AREA
+========================== */
+
+
+.task-area{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+
+/* ==========================
+TASK CARD
+========================== */
+
+
+.task-container{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
+
+}
+
+.task-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    transition:0.25s;
+
+}
+
+
+
+.task-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.task-card h3{
+
+    color:#6B4F5F;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.taskinput-section{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+
+.taskinput-section input{
+
+    flex:1;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:1px solid #DDD;
+
+}
+
+
+
+.taskinput-section button{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#6B4F5F;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+
+/* ==========================
+TASK LIST
+========================== */
+
+
+.tasklist-section ul{
+
+    list-style:none;
+
+}
+
+.tasklist-section{
+
+    margin-top:25px;
+
+}
+
+
+.tasklist-section li{
+
+    background:white;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+/* ==========================
+RIGHT SIDE CARDS
+========================== */
+
+
+.side-cards{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+
+/* ==========================
+DEADLINES
+========================== */
+
+
+.deadlines-card{
+
+    background:#41517A;
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
+
+    transition:0.25s;
+
+}
+
+
+
+.deadlines-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.deadlines-card h3{
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.deadline-input{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+.deadline-input input{
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+}
+
+
+
+.deadline-input button{
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#202D4E;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+
+#deadlineList{
+
+    list-style:none;
+
+    margin-top:15px;
+
+}
+
+
+
+
+/* ==========================
+PROGRESS
+========================== */
+
+
+.progress-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
+
+    transition:0.25s;
+
+}
+
+
+
+.progress-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.progress-card h3{
+
+    color:#6B4F5F;
+
+}
+
+
+
+.progress-bar{
+
+    width:100%;
+
+    height:18px;
+
+    background:#F4DCE6;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin:20px 0;
+
+}
+
+
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:#6B4F5F;
+
+}
+
+
+
+/* ==========================
+QUICK ACTIONS
+========================== */
+
+
+/* ==========================
+QUICK ACTIONS
+========================== */
+
+.quick-section{
+
+    grid-column:1 / 3;
+
+    background:#EEE1C5;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+
+.quick-section button{
+
+    flex:1;
+
+    max-width:220px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#986D5D;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:0.3s;
+
+}
+
+
+
+.quick-section button:hover{
+
+    background:#5c3c31;
+
+}
+
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+
+@media(max-width:768px){
+
+
+    .app-layout{
+
+        flex-direction:column;
+
+    }
+
+
+    #sidebar{
+
+        width:100%;
+
+        min-height:auto;
+
+    }
+
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .quick-section{
+
+        grid-column:auto;
+
+        flex-direction:column;
+
+    }
+
+
+}
