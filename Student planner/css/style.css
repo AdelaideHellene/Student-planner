@@ -1,0 +1,36 @@
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* Colours */
+
+:root{
+
+    --main-background: #EEE1C5;
+    --lighter-background: #F7F2E8;
+    --dark-blue: #28324A;
+    --dark-brown: #6C4739;
+    --brown: #986D5D;
+    --blue: #41517A;
+    --searchbar: #E0CB9E;
+    --text: black;
+    --sidebar: #EEE1C5;
+
+}
+
+
+/* Body */
+
+body{
+
+    min-height:100vh;
+    background-color:var(--main-background);
+    color:var(--text);
+    font-family: "Poppins", sans-serif;
+
+}

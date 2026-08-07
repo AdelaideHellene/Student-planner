@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard |My Student Planner</title>
+         <link rel="stylesheet" href="/Student planner/css/dashboard.css">
+
+    </head>
+    <body>
+        <aside id="sidebar">
+            <div class="sidebar-content">
+            <img src="../Student planner/assets/actual logo.png" alt="Student planner logo" id="logo">
+                <nav>
+                    <a href="dashboard.html">Home</a>
+                    <a href="planner.html">Planner</a>
+                </nav>
+            </div>
+            </aside>
+        <main>
+            <div class="greeting-card">
+            <h1 id="greeting">
+                Welcome,
+               <span id="userName">Student</span>!
+            </h1>
+            <p>One hour of being focused is better than 10 hours distracted</p>
+            </div>
+
+            <div class="dashboard-grid">
+
+                <!--Task card on the left-->
+
+            <div class="task-card">
+                <h3>Today's task</h3>
+
+                <div class="taskinput-section">
+                <input 
+                type="text"
+                id="taskInput"
+                placeholder="Add new task">
+
+                <button
+                type="button" 
+                id="addTaskButton">
+                    Add
+                </button>
+                </div>
+            </div>
+
+            <div class="tasklist-section">
+                <ul id="taskList"></ul>
+            </div>
+
+            <div class="side-cards">
+
+                <!--Deadlines card-->
+
+                <div class="deadlines-card">
+
+                    <div class="deadline-header">
+                     <h3>Upcoming Deadlines</h3>
+                      </div>
+
+                     <div class="deadline-input-section">
+
+                        <div class="deadline-input">
+
+                        <input
+                       type="text"
+                       id="deadlineInput"
+                       placeholder="Subject or assignment">
+
+                       <input
+                       type="date"
+                       id="deadlineDate">
+
+                    <button 
+                    type="button"
+                    id="addDeadlineButton">
+                       Add
+                    </button>
+                    </div>
+
+                    </div>
+
+                     <ul id="deadlineList"></ul>
+                </div>
+            </div>
+
+            <!--Progress card-->
+
+        <div class="progress-card">
+
+             <div class="progress-header">
+              <h3>Study Progress</h3>
+            </div>
+
+            <div class="progress-display">
+
+             <h2 id="progressPercentage">0%</h2>
+             <h3>Your Progress</h3>
+
+            <div class="progress-bar">
+
+            <div
+            class="progress-fill"
+            id="progressFill">
+            </div>
+
+            </div>
+
+           <p id="progressText">
+              0 / 0 Tasks Completed
+           </p>
+
+            <p class="progress-message">
+                 Keep going, you're doing great!
+            </p>
+           </div>
+            </div>
+
+            <!--Quick access-->
+
+            <div class="quick-section">
+
+                <button 
+                type="button"
+                id="quick-add">
+                    +Add task
+                </button>
+
+                <button 
+                type="button"
+                id="quick-deadline">
+                    Check deadlines
+                </button>
+
+                <button 
+                type="button"
+                id="quick-progress">
+                    View progress
+                </button>
+
+
+            </div>
+
+
+            </div>
+
+
+        </main>
+
+    </body>
+
+
+</html>
