@@ -2,580 +2,663 @@
 GENERAL STYLE
 ========================== */
 
-*{
-
-    margin:0;
-
-    padding:0;
-
-    box-sizing:border-box;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-body{
-
-    font-family:Arial, sans-serif;
-
-    background-color:#FFFCF4;
-
-    color:#4A3B45;
-
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #FFFCF4;
+    color: #4A3B45;
 }
-
 
 
 /* ==========================
 PAGE LAYOUT
 ========================== */
 
-.app-layout{
-
-    display:flex;
-
-    min-height:100vh;
-
+.app-layout {
+    display: flex;
+    min-height: 100vh;
 }
-
 
 
 /* ==========================
 SIDEBAR
 ========================== */
 
+#sidebar {
+    width: 200px;
+    min-height: 100vh;
 
-#sidebar{
+    background-color: #EEE1C5;
 
-    width:200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    min-height:100vh;
+    padding: 30px 20px;
 
-    background-color:#EEE1C5;
+    position: sticky;
+    top: 0;
+}
 
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    padding:30px 20px;
-
+.sidebar-content {
+    width: 100%;
 }
 
 
+/* Logo */
 
-.sidebar-content{
+#sidebar img {
+    width: 100px;
 
-    width:100%;
+    display: block;
 
+    margin: 0 auto 45px;
 }
 
 
+/* Navigation */
 
-#sidebar img{
+#sidebar nav {
+    width: 100%;
 
-    width:100px;
+    display: flex;
+    flex-direction: column;
 
-    display:block;
-
-    margin:0 auto 40px;
-
+    gap: 10px;
 }
 
+#sidebar a {
+    display: block;
 
+    width: 100%;
 
-#sidebar nav{
+    text-decoration: none;
 
-    width:100%;
+    color: #6B4F5F;
 
+    padding: 13px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    transition: 0.25s;
 }
 
+#sidebar a:hover {
+    background-color: #202D4E;
 
+    color: white;
 
-#sidebar a{
-
-    display:block;
-
-    width:100%;
-
-    text-decoration:none;
-
-    color:#6B4F5F;
-
-    padding:12px;
-
-    margin-bottom:15px;
-
-    text-align:center;
-
-    border-radius:12px;
-
-    transition:0.3s;
-
+    transform: translateX(3px);
 }
-
-
-
-#sidebar a:hover{
-
-    background-color:#202D4E;
-
-    color:white;
-
-}
-
 
 
 /* ==========================
 MAIN DASHBOARD
 ========================== */
 
+main {
+    flex: 1;
 
-main{
+    padding: 35px;
 
-    flex:1;
-
-    padding:35px;
-
+    max-width: 1600px;
 }
-
 
 
 /* ==========================
 GREETING CARD
 ========================== */
 
+.greeting-card {
+    background: white;
 
-.greeting-card{
+    padding: 30px;
 
-    background:white;
+    border-radius: 20px;
 
-    padding:30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
-    border-radius:20px;
-
-    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
-
-    margin-bottom:30px;
-
+    margin-bottom: 30px;
 }
 
+.greeting-card h1 {
+    color: #6B4F5F;
 
+    margin-bottom: 10px;
 
-.greeting-card h1{
-
-    color:#6B4F5F;
-
-    margin-bottom:10px;
-
+    font-size: 28px;
 }
 
+.greeting-card p {
+    color: #777;
 
-
-.greeting-card p{
-
-    color:#777;
-
+    line-height: 1.5;
 }
-
 
 
 /* ==========================
 DASHBOARD GRID
 ========================== */
 
+.dashboard-grid {
+    display: grid;
 
-.dashboard-grid{
+    grid-template-columns: 2fr 1fr;
 
-    display:grid;
-
-    grid-template-columns:2fr 1fr;
-
-    gap:25px;
-
+    gap: 25px;
 }
-
 
 
 /* ==========================
 TASK AREA
 ========================== */
 
+.task-area {
+    display: flex;
 
-.task-area{
+    flex-direction: column;
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
+    gap: 25px;
 }
 
+
+/* ==========================
+TASK CONTAINER
+========================== */
+
+.task-container {
+    background: #EEE1C5;
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
 
 
 /* ==========================
 TASK CARD
 ========================== */
 
+.task-card {
+    background: #EEE1C5;
 
-.task-container{
+    border-radius: 20px;
 
-    background:white;
+    padding: 10px;
 
-    border-radius:25px;
-
-    padding:25px;
-
-    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
-
+    transition: 0.25s;
 }
 
-.task-card{
+.task-card h3 {
+    color: #6B4F5F;
 
-    background:white;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    transition:0.25s;
-
+    margin-bottom: 20px;
 }
 
 
+/* Task input */
 
-.task-card:hover{
+.taskinput-section {
+    display: flex;
 
-    transform:translateY(-5px);
-
+    gap: 10px;
 }
 
+.taskinput-section input {
+    flex: 1;
 
+    padding: 12px 14px;
 
-.task-card h3{
+    border-radius: 10px;
 
-    color:#6B4F5F;
+    border: 1px solid #DDD;
 
-    margin-bottom:20px;
+    font-size: 14px;
 
+    outline: none;
+
+    transition: 0.2s;
 }
 
+.taskinput-section input:focus {
+    border-color: #6B4F5F;
 
-
-.taskinput-section{
-
-    display:flex;
-
-    gap:10px;
-
+    box-shadow: 0 0 0 3px rgba(107, 79, 95, 0.1);
 }
 
+.taskinput-section button {
+    padding: 12px 20px;
 
+    border: none;
 
-.taskinput-section input{
+    border-radius: 10px;
 
-    flex:1;
+    background: #6B4F5F;
 
-    padding:12px;
+    color: white;
 
-    border-radius:10px;
+    cursor: pointer;
 
-    border:1px solid #DDD;
-
+    transition: 0.25s;
 }
 
+.taskinput-section button:hover {
+    background: #4F3946;
 
-
-.taskinput-section button{
-
-    padding:12px 18px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#6B4F5F;
-
-    color:white;
-
-    cursor:pointer;
-
+    transform: translateY(-2px);
 }
-
 
 
 /* ==========================
 TASK LIST
 ========================== */
 
-
-.tasklist-section ul{
-
-    list-style:none;
-
+.tasklist-section {
+    margin-top: 25px;
 }
 
-.tasklist-section{
+.tasklist-section ul {
+    list-style: none;
+}
 
-    margin-top:25px;
+.tasklist-section li {
+    display: flex;
 
+    align-items: center;
+
+    gap: 12px;
+
+    background: #FFFCF4;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid #EEE1C5;
+
+    transition: 0.25s;
+}
+
+.tasklist-section li:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 
-.tasklist-section li{
+/* Checkbox */
 
-    background:white;
+.task-checkbox {
+    width: 18px;
 
-    padding:12px 15px;
+    height: 18px;
 
-    border-radius:10px;
+    cursor: pointer;
 
-    margin-bottom:12px;
+    accent-color: #6B4F5F;
 
+    flex-shrink: 0;
 }
 
+
+/* Task text */
+
+.tasklist-section li span {
+    flex: 1;
+
+    line-height: 1.4;
+}
+
+
+/* Completed task */
+
+.tasklist-section li.completed span {
+    text-decoration: line-through;
+
+    opacity: 0.55;
+}
+
+
+/* Delete button */
+
+.tasklist-section li button {
+    padding: 7px 11px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #4d3844;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    flex-shrink: 0;
+}
+
+.tasklist-section li button:hover {
+    background: #3b2f37;
+}
 
 
 /* ==========================
 RIGHT SIDE CARDS
 ========================== */
 
+.side-cards {
+    display: flex;
 
-.side-cards{
+    flex-direction: column;
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
+    gap: 25px;
 }
-
 
 
 /* ==========================
 DEADLINES
 ========================== */
 
+.deadlines-card {
+    background: #41517A;
 
-.deadlines-card{
+    color: white;
 
-    background:#41517A;
+    border-radius: 20px;
 
-    color:white;
+    padding: 25px;
 
-    border-radius:20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
-    padding:25px;
+    transition: 0.25s;
+}
 
-    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
+.deadlines-card:hover {
+    transform: translateY(-4px);
+}
 
-    transition:0.25s;
+.deadlines-card h3 {
+    color: white;
 
+    margin-bottom: 20px;
 }
 
 
+/* Deadline inputs */
 
-.deadlines-card:hover{
+.deadline-input {
+    display: flex;
 
-    transform:translateY(-5px);
+    flex-direction: column;
 
+    gap: 12px;
+}
+
+.deadline-input input {
+    padding: 12px 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+.deadline-input input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.deadline-input button {
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #202D4E;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.deadline-input button:hover {
+    background: #18233D;
+
+    transform: translateY(-2px);
 }
 
 
+/* Deadline list */
 
-.deadlines-card h3{
+#deadlineList {
+    list-style: none;
 
-    color:white;
+    margin-top: 20px;
 
-    margin-bottom:20px;
+    display: flex;
 
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+#deadlineList li {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    background: white;
+
+    color: #4A3B45;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    transition: 0.25s;
+}
+
+#deadlineList li:hover {
+    transform: translateY(-2px);
+}
+
+#deadlineList li span {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex: 1;
+
+    font-weight: 600;
+}
+
+#deadlineList li button {
+    padding: 7px 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #28324A;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    flex-shrink: 0;
+}
+
+#deadlineList li button:hover {
+    background: #41517A;
 }
 
 
+/* Deadline status */
 
-.deadline-input{
+.deadline-status {
+    display: block;
 
-    display:flex;
+    margin-top: 5px;
 
-    flex-direction:column;
+    font-size: 13px;
 
-    gap:12px;
-
+    font-weight: 600;
 }
 
-
-
-.deadline-input input{
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:10px;
-
+.deadline-status.upcoming {
+    color: #4F8A5B;
 }
 
-
-
-.deadline-input button{
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#202D4E;
-
-    color:white;
-
-    cursor:pointer;
-
+.deadline-status.due-soon {
+    color: #B8860B;
 }
 
-
-
-#deadlineList{
-
-    list-style:none;
-
-    margin-top:15px;
-
+.deadline-status.overdue {
+    color: #C94C4C;
 }
-
-
 
 
 /* ==========================
 PROGRESS
 ========================== */
 
+.progress-card {
+    background: white;
 
-.progress-card{
+    border-radius: 20px;
 
-    background:white;
+    padding: 25px;
 
-    border-radius:20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
-    padding:25px;
+    transition: 0.25s;
+}
 
-    box-shadow:0px 8px 20px rgba(0,0,0,0.08);
+.progress-card:hover {
+    transform: translateY(-4px);
+}
 
-    transition:0.25s;
+.progress-card h3 {
+    color: #6B4F5F;
 
+    margin-bottom: 15px;
 }
 
 
+/* Progress percentage */
 
-.progress-card:hover{
+#progressPercentage {
+    color: #6B4F5F;
 
-    transform:translateY(-5px);
-
+    font-size: 32px;
 }
 
 
+/* Progress bar */
 
-.progress-card h3{
+.progress-bar {
+    width: 100%;
 
-    color:#6B4F5F;
+    height: 18px;
 
+    background: #F4DCE6;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin: 20px 0;
 }
 
+.progress-fill {
+    width: 0%;
 
+    height: 100%;
 
-.progress-bar{
+    background: #6B4F5F;
 
-    width:100%;
+    border-radius: 20px;
 
-    height:18px;
-
-    background:#F4DCE6;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin:20px 0;
-
+    transition: width 0.4s ease;
 }
-
-
-
-.progress-fill{
-
-    width:0%;
-
-    height:100%;
-
-    background:#6B4F5F;
-
-}
-
 
 
 /* ==========================
 QUICK ACTIONS
 ========================== */
 
+.quick-section {
+    grid-column: 1 / 3;
 
-/* ==========================
-QUICK ACTIONS
-========================== */
+    background: #EEE1C5;
 
-.quick-section{
+    padding: 25px;
 
-    grid-column:1 / 3;
+    border-radius: 20px;
 
-    background:#EEE1C5;
+    display: flex;
 
-    padding:25px;
+    justify-content: center;
 
-    border-radius:20px;
+    align-items: center;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:20px;
-
+    gap: 20px;
 }
 
+.quick-section button {
+    flex: 1;
 
+    max-width: 220px;
 
-.quick-section button{
+    padding: 15px;
 
-    flex:1;
+    border: none;
 
-    max-width:220px;
+    border-radius: 12px;
 
-    padding:15px;
+    background: #986D5D;
 
-    border:none;
+    color: white;
 
-    border-radius:12px;
+    cursor: pointer;
 
-    background:#986D5D;
+    font-size: 15px;
 
-    color:white;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:0.3s;
-
+    transition: 0.25s;
 }
 
+.quick-section button:hover {
+    background: #5C3C31;
 
-
-.quick-section button:hover{
-
-    background:#5c3c31;
-
+    transform: translateY(-3px);
 }
 
 
@@ -583,40 +666,99 @@ QUICK ACTIONS
 RESPONSIVE
 ========================== */
 
+@media (max-width: 900px) {
 
-@media(max-width:768px){
-
-
-    .app-layout{
-
-        flex-direction:column;
-
+    #sidebar {
+        width: 170px;
     }
 
-
-    #sidebar{
-
-        width:100%;
-
-        min-height:auto;
-
+    main {
+        padding: 25px;
     }
 
-
-    .dashboard-grid{
-
-        grid-template-columns:1fr;
-
+    .dashboard-grid {
+        grid-template-columns: 1fr;
     }
 
-
-    .quick-section{
-
-        grid-column:auto;
-
-        flex-direction:column;
-
+    .quick-section {
+        grid-column: auto;
     }
 
+}
+
+
+@media (max-width: 768px) {
+
+    .app-layout {
+        flex-direction: column;
+    }
+
+    #sidebar {
+        width: 100%;
+
+        min-height: auto;
+
+        position: static;
+
+        padding: 20px;
+    }
+
+    #sidebar img {
+        margin-bottom: 20px;
+    }
+
+    #sidebar nav {
+        flex-direction: row;
+    }
+
+    main {
+        width: 100%;
+
+        padding: 20px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .taskinput-section {
+        flex-direction: column;
+    }
+
+    .quick-section {
+        grid-column: auto;
+
+        flex-direction: column;
+    }
+
+    .quick-section button {
+        width: 100%;
+
+        max-width: none;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .greeting-card {
+        padding: 22px;
+    }
+
+    .greeting-card h1 {
+        font-size: 23px;
+    }
+
+    .task-container,
+    .deadlines-card,
+    .progress-card {
+        padding: 20px;
+    }
+
+    #deadlineList li,
+    .tasklist-section li {
+        gap: 8px;
+    }
 
 }
