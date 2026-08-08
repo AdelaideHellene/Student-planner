@@ -26,16 +26,20 @@
 
 /* Body */
 
-body{
+body {
 
-    min-height:100vh;
-    background-color:var(--main-background);
-    color:var(--text);
+    min-height: 100vh;
+
+    background-color: var(--main-background);
+
+    color: var(--text);
+
     font-family: "Poppins", sans-serif;
 
 }
 
-main{
+
+main {
 
     background-color: #EEE1C5;
 
@@ -47,10 +51,14 @@ main{
 
     align-items: center;
 
-    min-height:100vh;
+    min-height: 100vh;
+
 }
 
-#logo{
+
+/* Splash logo */
+
+.splash-logo {
 
     width: 40vw;
 
@@ -60,9 +68,18 @@ main{
 
     margin-bottom: 20px;
 
+    opacity: 0;
+
+    transform: scale(0.95);
+
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
 }
 
-#start-button{
+
+/* Start button */
+
+#start-button {
 
     background-color: #28324A;
 
@@ -78,16 +95,19 @@ main{
 
     font-size: medium;
 
-    transition: 0.3s;
+    transition: opacity 0.5s;
 
     width: 285px;
 
     height: 54px;
 
+    opacity: 0;
+
 }
 
-#start-button:hover{
+
+#start-button:hover {
 
     background-color: #41517A;
-}
 
+}
