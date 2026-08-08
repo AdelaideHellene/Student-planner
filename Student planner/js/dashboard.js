@@ -1034,3 +1034,21 @@ deadlineInput.addEventListener(
 updateProgress();
 
 updateStudyGoal();
+
+// ==========================
+// OPEN CALENDAR
+// ==========================
+
+const quickCalendar =
+document.getElementById("quick-calendar");
+
+
+quickCalendar.addEventListener(
+    "click",
+    function() {
+
+        window.location.href =
+            "calendar.html";
+
+    }
+);

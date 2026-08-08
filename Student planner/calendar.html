@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    
+
+    <title>Student Planner - Calendar</title>
+
+    <link rel="stylesheet" href="css/calendar.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- SIDEBAR -->
+
+    <aside id="sidebar">
+
+
+        <div class="sidebar-content">
+
+
+            <img
+            src="assets/actual logo.png"
+            alt="Student planner logo"
+            id="logo">
+
+
+            <nav>
+
+
+                <a href="dashboard.html">
+                    Home
+                </a>
+
+
+                <a href="planner.html">
+                    Planner
+                </a>
+
+
+                <a href="calendar.html">
+                    Calendar
+                </a>
+
+
+            </nav>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+
+        <!-- HEADER -->
+
+        <div class="calendar-header">
+
+
+            <div>
+
+                <h1>
+                    My Calendar
+                </h1>
+
+                <p>
+                    Keep track of your deadlines and study sessions
+                </p>
+
+            </div>
+
+
+            <div class="calendar-navigation">
+
+
+                <button
+                type="button"
+                id="previousMonth">
+
+                    ←
+
+                </button>
+
+
+                <h2 id="monthYear">
+                    August 2026
+                </h2>
+
+
+                <button
+                type="button"
+                id="nextMonth">
+
+                    →
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- CALENDAR -->
+
+        <div class="calendar-card">
+
+
+            <!-- DAYS OF WEEK -->
+
+            <div class="calendar-weekdays">
+
+
+                <div>
+                    Mon
+                </div>
+
+
+                <div>
+                    Tue
+                </div>
+
+
+                <div>
+                    Wed
+                </div>
+
+
+                <div>
+                    Thu
+                </div>
+
+
+                <div>
+                    Fri
+                </div>
+
+
+                <div>
+                    Sat
+                </div>
+
+
+                <div>
+                    Sun
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- CALENDAR DAYS -->
+
+            <div
+            class="calendar-days"
+            id="calendarDays">
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- SELECTED DAY -->
+
+        <div class="selected-day-card">
+
+
+            <h2 id="selectedDate">
+                Select a day
+            </h2>
+
+
+            <div id="selectedEvents">
+
+                <p class="no-events">
+                    Select a day to view your events.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- LEGEND -->
+
+        <div class="calendar-legend">
+
+
+            <div class="legend-item">
+
+                <span class="legend-dot deadline-dot"></span>
+
+                <span>
+                    Deadline
+                </span>
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <span class="legend-dot session-dot"></span>
+
+                <span>
+                    Study session
+                </span>
+
+            </div>
+
+
+            <div class="legend-item">
+
+                <span class="legend-dot today-dot"></span>
+
+                <span>
+                    Today
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <script src="js/calendar.js"></script>
+
+
+</body>
+
+</html>

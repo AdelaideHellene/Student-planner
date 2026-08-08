@@ -43,6 +43,7 @@ SIDEBAR
 
     position: sticky;
     top: 0;
+
 }
 
 .sidebar-content {
@@ -126,6 +127,7 @@ GREETING CARD
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
     margin-bottom: 30px;
+
 }
 
 .greeting-card h1 {
@@ -178,7 +180,7 @@ TASK CONTAINER
 
 .task-container {
 
-    background: white;
+    background: #f5efe0;
 
     border-radius: 25px;
 
@@ -201,7 +203,7 @@ TASK CARD
 
 .task-card {
 
-    background: white;
+    background: #f5efe0;
 
     border-radius: 20px;
 
@@ -262,7 +264,7 @@ TASK INPUT
 
     border-radius: 10px;
 
-    background: #6B4F5F;
+    background: #4f3329;
 
     color: white;
 
@@ -353,7 +355,7 @@ TASK LIST
 
     border-radius: 8px;
 
-    background: #28324A;
+    background: #6C4739;
 
     color: white;
 
@@ -622,22 +624,24 @@ PROGRESS
 QUICK ACTIONS
 ========================== */
 
-.quick-section {
-    grid-column: 1 / 3;
+.quick-section{
 
-    background: #EEE1C5;
+    grid-column:1 / 3;
 
-    padding: 25px;
+    background:#907B87;
 
-    border-radius: 20px;
+    padding:25px;
 
-    display: flex;
+    border-radius:20px;
 
-    justify-content: center;
+    display:flex;
 
-    align-items: center;
+    justify-content:center;
 
-    gap: 20px;
+    align-items:center;
+
+    gap:15px;
+
 }
 
 .quick-section button {
@@ -651,7 +655,7 @@ QUICK ACTIONS
 
     border-radius: 12px;
 
-    background: #986D5D;
+    background: #b49ba9;
 
     color: white;
 
@@ -663,7 +667,7 @@ QUICK ACTIONS
 }
 
 .quick-section button:hover {
-    background: #5C3C31;
+    background: #b1859e;
 
     transform: translateY(-3px);
 }
@@ -675,11 +679,8 @@ DAILY STUDY GOAL
 
 .study-goal-card {
 
-    background: linear-gradient(
-        145deg,
-        #F7F2E8,
-        #EEE1C5
-    );
+    background-color: 
+        #f0e1bf;
 
     padding: 25px;
 
@@ -705,27 +706,7 @@ DAILY STUDY GOAL
 }
 
 
-/* Decorative circle */
 
-.study-goal-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-
-    height: 100px;
-
-    border-radius: 50%;
-
-    background: rgba(107,79,95,0.08);
-
-    right: -35px;
-
-    top: -35px;
-
-}
 
 
 
@@ -833,7 +814,7 @@ GOAL SETUP
 
     border-radius: 9px;
 
-    background: #28324A;
+    background: #5C3C31;
 
     color: white;
 
@@ -848,7 +829,7 @@ GOAL SETUP
 
 .goal-setup button:hover {
 
-    background: #41517A;
+    background: #4A3B45;
 
     transform: translateY(-2px);
 
