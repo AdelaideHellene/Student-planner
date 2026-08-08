@@ -683,3 +683,163 @@ function formatTime(time) {
     );
 
 }
+
+// ==========================
+// STUDY TIMER
+// ==========================
+
+const timerMinutes =
+    document.getElementById("timerMinutes");
+
+const timerSeconds =
+    document.getElementById("timerSeconds");
+
+const timerStatus =
+    document.getElementById("timerStatus");
+
+const startTimerButton =
+    document.getElementById("startTimerButton");
+
+const pauseTimerButton =
+    document.getElementById("pauseTimerButton");
+
+const resetTimerButton =
+    document.getElementById("resetTimerButton");
+
+
+// Timer starts at 25 minutes
+
+let timeRemaining = 25 * 60;
+
+let timerInterval = null;
+
+
+// ==========================
+// UPDATE TIMER DISPLAY
+// ==========================
+
+function updateTimerDisplay() {
+
+    const minutes =
+        Math.floor(timeRemaining / 60);
+
+    const seconds =
+        timeRemaining % 60;
+
+
+    timerMinutes.textContent =
+        String(minutes).padStart(2, "0");
+
+
+    timerSeconds.textContent =
+        String(seconds).padStart(2, "0");
+
+}
+
+
+// ==========================
+// START TIMER
+// ==========================
+
+startTimerButton.addEventListener(
+    "click",
+    function() {
+
+        // Prevent multiple timers
+        // running at the same time
+
+        if (timerInterval !== null) {
+            return;
+        }
+
+
+        timerStatus.textContent =
+            "Stay focused! 📚";
+
+
+        timerInterval =
+            setInterval(function() {
+
+                if (timeRemaining > 0) {
+
+                    timeRemaining--;
+
+                    updateTimerDisplay();
+
+                }
+
+
+                else {
+
+                    clearInterval(timerInterval);
+
+                    timerInterval = null;
+
+
+                    timerStatus.textContent =
+                        "🎉 Study session complete!";
+
+
+                }
+
+            }, 1000);
+
+    }
+);
+
+
+// ==========================
+// PAUSE TIMER
+// ==========================
+
+pauseTimerButton.addEventListener(
+    "click",
+    function() {
+
+        if (timerInterval !== null) {
+
+            clearInterval(timerInterval);
+
+            timerInterval = null;
+
+
+            timerStatus.textContent =
+                "Timer paused ⏸️";
+
+        }
+
+    }
+);
+
+
+// ==========================
+// RESET TIMER
+// ==========================
+
+resetTimerButton.addEventListener(
+    "click",
+    function() {
+
+        clearInterval(timerInterval);
+
+        timerInterval = null;
+
+
+        timeRemaining = 25 * 60;
+
+
+        updateTimerDisplay();
+
+
+        timerStatus.textContent =
+            "Ready to focus? 📚";
+
+    }
+);
+
+
+// ==========================
+// INITIAL DISPLAY
+// ==========================
+
+updateTimerDisplay();
