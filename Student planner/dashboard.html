@@ -2,455 +2,411 @@
 <html lang="en">
 
 <head>
+<meta charset="UTF-8">
 
-    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Planner - Dashboard</title>
 
-    <title>Student Planner - Dashboard</title>
-
-    <link rel="stylesheet" href="css/dashboard.css">
-
+<link rel="stylesheet" href="css/dashboard.css">
 </head>
-
-
 <body>
 
+    <div class="app-layout">
+<!-- SIDEBAR -->
 
-<div class="app-layout">
+<aside id="sidebar">
 
+    <div class="sidebar-content">
 
+        <img 
+        src="assets/actual logo.png" 
+        alt="Student planner logo" 
+        id="logo">
 
-    <!-- SIDEBAR -->
 
-    <aside id="sidebar">
+        <nav>
 
+            <a href="dashboard.html">
+                Home
+            </a>
 
-        <div class="sidebar-content">
 
+            <a href="planner.html">
+                Planner
+            </a>
 
-            <img 
-            src="assets/actual logo.png" 
-            alt="Student planner logo" 
-            id="logo">
+        </nav>
 
+    </div>
 
+</aside>
 
-            <nav>
 
 
-                <a href="dashboard.html">
-                    Home
-                </a>
+<!-- MAIN CONTENT -->
 
+<main>
 
 
-                <a href="planner.html">
-                    Planner
-                </a>
+    <!-- GREETING CARD -->
 
+    <div class="greeting-card">
 
-            </nav>
+        <h1 id="greeting">
 
+            Welcome,
+            <span id="userName">
+                Student
+            </span>!
 
-        </div>
+        </h1>
 
 
-    </aside>
+        <p>
+            One hour of being focused is better than 10 hours distracted
+        </p>
 
+    </div>
 
 
 
+    <!-- DASHBOARD GRID -->
 
+    <div class="dashboard-grid">
 
-    <!-- MAIN CONTENT -->
 
-    <main>
+        <!-- LEFT SIDE -->
 
+        <div class="task-area">
 
 
+            <div class="task-container">
 
-        <!-- GREETING CARD -->
 
-        <div class="greeting-card">
+                <!-- TASK INPUT CARD -->
 
+                <div class="task-card">
 
-            <h1 id="greeting">
+                    <h3>
+                        Today's Task
+                    </h3>
 
-                Welcome,
-                <span id="userName">
-                    Student
-                </span>!
 
-            </h1>
+                    <div class="taskinput-section">
 
+                        <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Add new task">
 
 
-            <p>
-                One hour of being focused is better than 10 hours distracted
-            </p>
+                        <button
+                        type="button"
+                        id="addTaskButton">
 
+                            Add
 
-        </div>
-
-
-
-
-
-
-
-        <!-- DASHBOARD GRID -->
-
-        <div class="dashboard-grid">
-
-
-
-
-
-            <!-- LEFT SIDE -->
-
-            <div class="task-area">
-
-
-
-                <div class="task-container">
-
-
-
-
-
-                    <!-- TASK INPUT CARD -->
-
-                    <div class="task-card">
-
-
-                        <h3>
-                            Today's Task
-                        </h3>
-
-
-
-
-                        <div class="taskinput-section">
-
-
-                            <input
-                            type="text"
-                            id="taskInput"
-                            placeholder="Add new task">
-
-
-
-
-
-                            <button
-                            type="button"
-                            id="addTaskButton">
-
-                                Add
-
-                            </button>
-
-
-
-                        </div>
-
-
+                        </button>
 
                     </div>
-
-
-
-
-
-
-
-                    <!-- TASK LIST -->
-
-
-                    <div class="tasklist-section">
-
-
-                        <ul id="taskList"></ul>
-
-
-                    </div>
-
-
 
                 </div>
 
+
+
+                <!-- TASK LIST -->
+
+                <div class="tasklist-section">
+
+                    <ul id="taskList"></ul>
+
+                </div>
 
 
             </div>
 
 
+        </div>
 
 
 
+        <!-- RIGHT SIDE -->
+
+        <div class="side-cards">
 
 
+            <!-- DEADLINES -->
 
-            <!-- RIGHT SIDE -->
+            <div class="deadlines-card">
 
-            <div class="side-cards">
+                <div class="deadline-header">
 
+                    <h3>
+                        Upcoming Deadlines
+                    </h3>
 
-
-
-
-                <!-- DEADLINES -->
-
-                <div class="deadlines-card">
-
+                </div>
 
 
-                    <div class="deadline-header">
+                <div class="deadline-input-section">
+
+                    <div class="deadline-input">
+
+                        <input
+                        type="text"
+                        id="deadlineInput"
+                        placeholder="Subject or assignment">
 
 
-                        <h3>
-                            Upcoming Deadlines
-                        </h3>
+                        <input
+                        type="date"
+                        id="deadlineDate">
 
+
+                        <button
+                        type="button"
+                        id="addDeadlineButton">
+
+                            Add
+
+                        </button>
 
                     </div>
 
+                </div>
+
+
+                <ul id="deadlineList"></ul>
+
+            </div>
 
 
 
+            <!-- PROGRESS -->
+
+            <div class="progress-card">
+
+                <div class="progress-header">
+
+                    <h3>
+                        Study Progress
+                    </h3>
+
+                </div>
 
 
-                    <div class="deadline-input-section">
+                <div class="progress-display">
+
+                    <h2 id="progressPercentage">
+                        0%
+                    </h2>
 
 
-                        <div class="deadline-input">
+                    <h3>
+                        Your Progress
+                    </h3>
 
 
-                            <input
-                            type="text"
-                            id="deadlineInput"
-                            placeholder="Subject or assignment">
+                    <div class="progress-bar">
 
-
-
-
-
-                            <input
-                            type="date"
-                            id="deadlineDate">
-
-
-
-
-
-                            <button
-                            type="button"
-                            id="addDeadlineButton">
-
-                                Add
-
-                            </button>
-
-
+                        <div
+                        class="progress-fill"
+                        id="progressFill">
 
                         </div>
 
-
-
                     </div>
 
 
+                    <p id="progressText">
+
+                        0 / 0 Tasks Completed
+
+                    </p>
+
+
+                    <p class="progress-message">
+
+                        Keep going, you're doing great!
+
+                    </p>
+
+                </div>
+
+            </div>
 
 
 
+            <!-- DAILY STUDY GOAL -->
+
+            <div class="study-goal-card">
 
 
-                    <ul id="deadlineList"></ul>
+                <div class="study-goal-header">
+
+                    <h3>
+                        Daily Study Goal
+                    </h3>
 
 
-
+                    <p>
+                        Stay consistent with your studies
+                    </p>
 
                 </div>
 
 
 
+                <!-- GOAL SETUP -->
+
+                <div class="goal-setup">
+
+                    <input
+                    type="number"
+                    id="goalInput"
+                    placeholder="60"
+                    min="1">
+
+
+                    <span>
+                        minutes
+                    </span>
+
+
+                    <button
+                    type="button"
+                    id="setGoalButton">
+
+                        Set goal
+
+                    </button>
+
+                </div>
 
 
 
+                <!-- GOAL PROGRESS -->
+
+                <div class="study-goal-progress">
+
+                    <div class="goal-numbers">
+
+                        <strong id="studyMinutes">
+                            0
+                        </strong>
 
 
-
-                <!-- PROGRESS -->
-
-                <div class="progress-card">
-
+                        <span>
+                            /
+                        </span>
 
 
-                    <div class="progress-header">
+                        <span id="studyGoal">
+                            60
+                        </span>
 
 
-                        <h3>
-                            Study Progress
-                        </h3>
-
+                        <span>
+                            min
+                        </span>
 
                     </div>
 
 
+                    <div class="goal-progress-bar">
 
-
-
-
-
-                    <div class="progress-display">
-
-
-                        <h2 id="progressPercentage">
-                            0%
-                        </h2>
-
-
-
-
-                        <h3>
-                            Your Progress
-                        </h3>
-
-
-
-
-
-
-                        <div class="progress-bar">
-
-
-                            <div
-                            class="progress-fill"
-                            id="progressFill">
-
-
-                            </div>
-
+                        <div
+                        class="goal-progress-fill"
+                        id="goalProgressFill">
 
                         </div>
 
+                    </div>
+
+
+                    <p id="goalProgressText">
+                        0% of today's goal
+                    </p>
+
+                </div>
 
 
 
+                <!-- STUDY STREAK -->
+
+                <div class="streak-section">
+
+                    <span class="streak-icon">
+                        🔥
+                    </span>
 
 
+                    <div>
 
-                        <p id="progressText">
+                        <strong id="studyStreak">
+                            0 day streak
+                        </strong>
 
-                            0 / 0 Tasks Completed
 
+                        <p>
+                            Keep it going!
                         </p>
 
-
-
-
-
-
-
-                        <p class="progress-message">
-
-                            Keep going, you're doing great!
-
-                        </p>
-
-
-
-
                     </div>
-
-
-
 
                 </div>
 
 
-
-
-
             </div>
-
-
-
-
-
-
-
-
-
-            <!-- QUICK ACCESS -->
-
-            <div class="quick-section">
-
-
-
-                <button
-                type="button"
-                id="quick-add">
-
-                    + Add task
-
-                </button>
-
-
-
-
-
-
-                <button
-                type="button"
-                id="quick-deadline">
-
-                    Check deadlines
-
-                </button>
-
-
-
-
-
-
-                <button
-                type="button"
-                id="quick-progress">
-
-                    View progress
-
-                </button>
-
-
-
-
-            </div>
-
-
-
-
 
 
         </div>
 
 
 
+        <!-- QUICK ACCESS -->
+
+        <div class="quick-section">
 
 
+            <button
+            type="button"
+            id="quick-add">
 
-    </main>
+                + Add task
+
+            </button>
 
 
+            <button
+            type="button"
+            id="quick-deadline">
+
+                Check deadlines
+
+            </button>
 
 
+            <button
+            type="button"
+            id="quick-progress">
+
+                View progress
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</main>
 
 </div>
-
-
-
-
-
+</div>
 
 <script src="js/dashboard.js"></script>
 

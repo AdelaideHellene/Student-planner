@@ -1,165 +1,232 @@
-// ==========================
+// ==================================================
 // USER NAME
-// ==========================
+// ==================================================
 
 const userName =
-    document.getElementById("userName");
+document.getElementById("userName");
+
 
 userName.textContent =
-    localStorage.getItem("studentName");
+localStorage.getItem("studentName") || "Student";
 
 
-// ==========================
+// ==================================================
 // TASK ELEMENTS
-// ==========================
+// ==================================================
 
 const taskInput =
-    document.getElementById("taskInput");
+document.getElementById("taskInput");
 
 const addTaskButton =
-    document.getElementById("addTaskButton");
+document.getElementById("addTaskButton");
 
 const taskList =
-    document.getElementById("taskList");
+document.getElementById("taskList");
 
 
-// ==========================
+// ==================================================
 // PROGRESS ELEMENTS
-// ==========================
+// ==================================================
 
 const progressPercentage =
-    document.getElementById("progressPercentage");
+document.getElementById("progressPercentage");
 
 const progressFill =
-    document.getElementById("progressFill");
+document.getElementById("progressFill");
 
 const progressText =
-    document.getElementById("progressText");
+document.getElementById("progressText");
 
 
-// ==========================
+// ==================================================
 // DEADLINE ELEMENTS
-// ==========================
+// ==================================================
 
 const deadlineInput =
-    document.getElementById("deadlineInput");
+document.getElementById("deadlineInput");
 
 const deadlineDate =
-    document.getElementById("deadlineDate");
+document.getElementById("deadlineDate");
 
 const addDeadlineButton =
-    document.getElementById("addDeadlineButton");
+document.getElementById("addDeadlineButton");
 
 const deadlineList =
-    document.getElementById("deadlineList");
+document.getElementById("deadlineList");
 
 
-// ==========================
+// ==================================================
+// DAILY STUDY GOAL ELEMENTS
+// ==================================================
+
+const goalInput =
+document.getElementById("goalInput");
+
+const setGoalButton =
+document.getElementById("setGoalButton");
+
+const studyMinutes =
+document.getElementById("studyMinutes");
+
+const studyGoal =
+document.getElementById("studyGoal");
+
+const goalProgressFill =
+document.getElementById("goalProgressFill");
+
+const goalProgressText =
+document.getElementById("goalProgressText");
+
+const studyStreak =
+document.getElementById("studyStreak");
+
+
+// ==================================================
 // LOAD SAVED DATA
-// ==========================
+// ==================================================
 
 let tasks =
-    JSON.parse(localStorage.getItem("tasks")) || [];
+JSON.parse(
+    localStorage.getItem("tasks")
+) || [];
+
 
 let deadlines =
-    JSON.parse(localStorage.getItem("deadlines")) || [];
+JSON.parse(
+    localStorage.getItem("deadlines")
+) || [];
 
 
-// ==========================
+let savedGoal =
+Number(
+    localStorage.getItem(
+        "studyGoal"
+    )
+) || 60;
+
+
+// ==================================================
 // DISPLAY SAVED TASKS
-// ==========================
+// ==================================================
 
-tasks.forEach(function(task) {
+tasks.forEach(
+    function(task) {
 
-    createTask(task);
+        createTask(task);
 
-});
+    }
+);
 
 
-// ==========================
+// ==================================================
 // DISPLAY SAVED DEADLINES
-// ==========================
+// ==================================================
 
 displayDeadlines();
 
 
-// ==========================
+// ==================================================
+// DISPLAY STUDY GOAL
+// ==================================================
+
+studyGoal.textContent =
+savedGoal;
+
+goalInput.value =
+savedGoal;
+
+
+// ==================================================
 // ADD TASK
-// ==========================
+// ==================================================
 
-addTaskButton.addEventListener("click", function() {
+addTaskButton.addEventListener(
+    "click",
+    function() {
 
-    const taskText =
+        const taskText =
         taskInput.value.trim();
 
 
-    if (taskText === "") {
+        if (taskText === "") {
 
-        return;
+            return;
+
+        }
+
+
+        const newTask = {
+
+            text: taskText,
+
+            completed: false
+
+        };
+
+
+        tasks.push(newTask);
+
+
+        saveTasks();
+
+        createTask(newTask);
+
+
+        taskInput.value = "";
+
+
+        updateProgress();
 
     }
+);
 
 
-    const newTask = {
-
-        text: taskText,
-
-        completed: false
-
-    };
-
-
-    tasks.push(newTask);
-
-
-    saveTasks();
-
-    createTask(newTask);
-
-
-    taskInput.value = "";
-
-
-    updateProgress();
-
-});
-
-
-// ==========================
+// ==================================================
 // CREATE TASK
-// ==========================
+// ==================================================
 
 function createTask(task) {
 
     const listItem =
-        document.createElement("li");
+    document.createElement("li");
 
 
-    // Checkbox
+    // ==========================
+    // CHECKBOX
+    // ==========================
 
     const checkbox =
-        document.createElement("input");
+    document.createElement("input");
 
-    checkbox.type = "checkbox";
+
+    checkbox.type =
+    "checkbox";
+
 
     checkbox.classList.add(
         "task-checkbox"
     );
 
+
     checkbox.checked =
-        task.completed;
+    task.completed;
 
 
-    // Task text
+    // ==========================
+    // TASK TEXT
+    // ==========================
 
     const taskLabel =
-        document.createElement("span");
+    document.createElement("span");
+
 
     taskLabel.textContent =
-        task.text;
+    task.text;
 
 
-    // Completed state
+    // ==========================
+    // COMPLETED STATE
+    // ==========================
 
     if (task.completed) {
 
@@ -170,14 +237,16 @@ function createTask(task) {
     }
 
 
-    // Checkbox event
+    // ==========================
+    // CHECKBOX EVENT
+    // ==========================
 
     checkbox.addEventListener(
         "change",
         function() {
 
             task.completed =
-                checkbox.checked;
+            checkbox.checked;
 
 
             listItem.classList.toggle(
@@ -194,13 +263,16 @@ function createTask(task) {
     );
 
 
-    // Delete button
+    // ==========================
+    // DELETE BUTTON
+    // ==========================
 
     const deleteButton =
-        document.createElement("button");
+    document.createElement("button");
+
 
     deleteButton.textContent =
-        "Delete";
+    "Delete";
 
 
     deleteButton.addEventListener(
@@ -211,7 +283,7 @@ function createTask(task) {
 
 
             const taskIndex =
-                tasks.indexOf(task);
+            tasks.indexOf(task);
 
 
             if (taskIndex !== -1) {
@@ -234,15 +306,19 @@ function createTask(task) {
     );
 
 
-    // Add elements
+    // ==========================
+    // ADD ELEMENTS
+    // ==========================
 
     listItem.appendChild(
         checkbox
     );
 
+
     listItem.appendChild(
         taskLabel
     );
+
 
     listItem.appendChild(
         deleteButton
@@ -256,9 +332,9 @@ function createTask(task) {
 }
 
 
-// ==========================
+// ==================================================
 // SAVE TASKS
-// ==========================
+// ==================================================
 
 function saveTasks() {
 
@@ -270,67 +346,71 @@ function saveTasks() {
 }
 
 
-// ==========================
-// UPDATE PROGRESS
-// ==========================
+// ==================================================
+// UPDATE TASK PROGRESS
+// ==================================================
 
 function updateProgress() {
 
     const totalTasks =
-        tasks.length;
+    tasks.length;
 
 
     const completedTasks =
-        tasks.filter(
-            function(task) {
+    tasks.filter(
+        function(task) {
 
-                return task.completed;
+            return task.completed;
 
-            }
-        ).length;
+        }
+    ).length;
 
 
-    let percentage = 0;
+    let percentage =
+    0;
 
 
     if (totalTasks > 0) {
 
         percentage =
-            Math.round(
-                (completedTasks /
-                totalTasks) * 100
-            );
+        Math.round(
+            (
+                completedTasks /
+                totalTasks
+            ) * 100
+        );
 
     }
 
 
     progressPercentage.textContent =
-        percentage + "%";
+    percentage + "%";
 
 
     progressFill.style.width =
-        percentage + "%";
+    percentage + "%";
 
 
     progressText.textContent =
-        `${completedTasks} / ${totalTasks} Tasks Completed`;
+    `${completedTasks} / ${totalTasks} Tasks Completed`;
 
 }
 
 
-// ==========================
+// ==================================================
 // ADD DEADLINE
-// ==========================
+// ==================================================
 
 addDeadlineButton.addEventListener(
     "click",
     function() {
 
         const deadlineText =
-            deadlineInput.value.trim();
+        deadlineInput.value.trim();
+
 
         const date =
-            deadlineDate.value;
+        deadlineDate.value;
 
 
         if (
@@ -370,29 +450,25 @@ addDeadlineButton.addEventListener(
 );
 
 
-// ==========================
+// ==================================================
 // CREATE DEADLINE
-// ==========================
+// ==================================================
 
 function createDeadline(deadline) {
 
     const listItem =
-        document.createElement("li");
+    document.createElement("li");
 
 
     const deadlineText =
-        document.createElement("span");
+    document.createElement("span");
 
-
-    // Deadline subject
 
     const subject =
-        deadline.text ||
-        deadline.subject ||
-        "Unnamed deadline";
+    deadline.text ||
+    deadline.subject ||
+    "Unnamed deadline";
 
-
-    // Subject + date
 
     deadlineText.innerHTML = `
         <strong>${subject}</strong>
@@ -405,7 +481,8 @@ function createDeadline(deadline) {
     // ==========================
 
     const status =
-        document.createElement("small");
+    document.createElement("small");
+
 
     status.classList.add(
         "deadline-status"
@@ -413,36 +490,45 @@ function createDeadline(deadline) {
 
 
     const today =
-        new Date();
+    new Date();
+
 
     today.setHours(
-        0, 0, 0, 0
+        0,
+        0,
+        0,
+        0
     );
 
 
     const deadlineDay =
-        new Date(deadline.date);
+    new Date(deadline.date);
+
 
     deadlineDay.setHours(
-        0, 0, 0, 0
+        0,
+        0,
+        0,
+        0
     );
 
 
     const difference =
-        deadlineDay - today;
+    deadlineDay - today;
 
 
     const daysRemaining =
-        Math.ceil(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
+    Math.ceil(
+        difference /
+        (1000 * 60 * 60 * 24)
+    );
 
 
     if (daysRemaining < 0) {
 
         status.textContent =
-            "🔴 Overdue";
+        "🔴 Overdue";
+
 
         status.classList.add(
             "overdue"
@@ -453,7 +539,8 @@ function createDeadline(deadline) {
     else if (daysRemaining <= 3) {
 
         status.textContent =
-            "🟡 Due soon";
+        "🟡 Due soon";
+
 
         status.classList.add(
             "due-soon"
@@ -464,7 +551,8 @@ function createDeadline(deadline) {
     else {
 
         status.textContent =
-            "🟢 Upcoming";
+        "🟢 Upcoming";
+
 
         status.classList.add(
             "upcoming"
@@ -472,8 +560,6 @@ function createDeadline(deadline) {
 
     }
 
-
-    // Add status
 
     deadlineText.appendChild(
         status
@@ -485,10 +571,11 @@ function createDeadline(deadline) {
     // ==========================
 
     const deleteButton =
-        document.createElement("button");
+    document.createElement("button");
+
 
     deleteButton.textContent =
-        "Delete";
+    "Delete";
 
 
     deleteButton.addEventListener(
@@ -496,9 +583,9 @@ function createDeadline(deadline) {
         function() {
 
             const deadlineIndex =
-                deadlines.indexOf(
-                    deadline
-                );
+            deadlines.indexOf(
+                deadline
+            );
 
 
             if (
@@ -529,6 +616,7 @@ function createDeadline(deadline) {
         deadlineText
     );
 
+
     listItem.appendChild(
         deleteButton
     );
@@ -541,9 +629,9 @@ function createDeadline(deadline) {
 }
 
 
-// ==========================
+// ==================================================
 // SAVE DEADLINES
-// ==========================
+// ==================================================
 
 function saveDeadlines() {
 
@@ -557,44 +645,46 @@ function saveDeadlines() {
 }
 
 
-// ==========================
+// ==================================================
 // DISPLAY DEADLINES
-// ==========================
+// ==================================================
 
 function displayDeadlines() {
 
     deadlineList.innerHTML = "";
 
 
-    // Sort nearest deadline first
+    deadlines.sort(
+        function(a, b) {
 
-    deadlines.sort(function(a, b) {
+            return new Date(a.date) -
+                   new Date(b.date);
 
-        return new Date(a.date) -
-               new Date(b.date);
-
-    });
+        }
+    );
 
 
-    // Display sorted deadlines
+    deadlines.forEach(
+        function(deadline) {
 
-    deadlines.forEach(function(deadline) {
+            createDeadline(
+                deadline
+            );
 
-        createDeadline(deadline);
-
-    });
+        }
+    );
 
 }
 
 
-// ==========================
+// ==================================================
 // FORMAT DATE
-// ==========================
+// ==================================================
 
 function formatDate(date) {
 
     const dateObject =
-        new Date(date);
+    new Date(date);
 
 
     return dateObject.toLocaleDateString(
@@ -609,69 +699,297 @@ function formatDate(date) {
 }
 
 
-// ==========================
-// INITIAL PROGRESS
-// ==========================
+// ==================================================
+// DAILY STUDY GOAL
+// ==================================================
 
-updateProgress();
+setGoalButton.addEventListener(
+    "click",
+    function() {
+
+        const newGoal =
+        Number(
+            goalInput.value
+        );
 
 
+        if (
+            newGoal <= 0 ||
+            isNaN(newGoal)
+        ) {
 
-// ==========================
+            return;
+
+        }
+
+
+        savedGoal =
+        newGoal;
+
+
+        localStorage.setItem(
+            "studyGoal",
+            savedGoal
+        );
+
+
+        studyGoal.textContent =
+        savedGoal;
+
+
+        updateStudyGoal();
+
+    }
+);
+
+
+// ==================================================
+// GET TODAY'S DATE
+// ==================================================
+
+function getToday() {
+
+    return new Date()
+        .toISOString()
+        .split("T")[0];
+
+}
+
+
+// ==================================================
+// GET STUDY DATA
+// ==================================================
+
+function getStudyData() {
+
+    return JSON.parse(
+        localStorage.getItem(
+            "studyData"
+        )
+    ) || {};
+
+}
+
+
+// ==================================================
+// UPDATE STUDY GOAL
+// ==================================================
+
+function updateStudyGoal() {
+
+    const studyData =
+    getStudyData();
+
+
+    const today =
+    getToday();
+
+
+    const minutes =
+    studyData[today] || 0;
+
+
+    studyMinutes.textContent =
+    Math.round(minutes);
+
+
+    studyGoal.textContent =
+    savedGoal;
+
+
+    let percentage =
+    Math.round(
+        (
+            minutes /
+            savedGoal
+        ) * 100
+    );
+
+
+    if (percentage > 100) {
+
+        percentage = 100;
+
+    }
+
+
+    goalProgressFill.style.width =
+    percentage + "%";
+
+
+    goalProgressText.textContent =
+    `${percentage}% of today's goal`;
+
+
+    updateStudyStreak();
+
+}
+
+
+// ==================================================
+// STUDY STREAK
+// ==================================================
+
+function updateStudyStreak() {
+
+    const studyData =
+    getStudyData();
+
+
+    const dates =
+    Object.keys(studyData)
+    .filter(
+        function(date) {
+
+            return studyData[date] > 0;
+
+        }
+    )
+    .sort()
+    .reverse();
+
+
+    let streak =
+    0;
+
+
+    let currentDate =
+    new Date();
+
+
+    currentDate.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    for (
+        let i = 0;
+        i < dates.length;
+        i++
+    ) {
+
+        const date =
+        new Date(
+            dates[i]
+        );
+
+
+        date.setHours(
+            0,
+            0,
+            0,
+            0
+        );
+
+
+        const difference =
+        Math.round(
+            (
+                currentDate -
+                date
+            ) /
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+        );
+
+
+        if (
+            difference === streak
+        ) {
+
+            streak++;
+
+        }
+
+        else {
+
+            break;
+
+        }
+
+    }
+
+
+    studyStreak.textContent =
+    `${streak} day${streak === 1 ? "" : "s"} streak`;
+
+}
+
+
+// ==================================================
 // QUICK ACTIONS
-// ==========================
+// ==================================================
 
 const quickAdd =
-    document.getElementById("quick-add");
+document.getElementById("quick-add");
+
 
 const quickDeadline =
-    document.getElementById("quick-deadline");
+document.getElementById("quick-deadline");
+
 
 const quickProgress =
-    document.getElementById("quick-progress");
+document.getElementById("quick-progress");
 
 
 // ==========================
 // ADD TASK
 // ==========================
 
-quickAdd.addEventListener("click", function() {
+quickAdd.addEventListener(
+    "click",
+    function() {
 
-    taskInput.focus();
+        taskInput.focus();
 
-});
+    }
+);
 
 
 // ==========================
 // CHECK DEADLINES
 // ==========================
 
-quickDeadline.addEventListener("click", function() {
+quickDeadline.addEventListener(
+    "click",
+    function() {
 
-    deadlineList.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+        deadlineList.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
 
-});
+    }
+);
 
 
 // ==========================
 // VIEW PROGRESS
 // ==========================
 
-quickProgress.addEventListener("click", function() {
+quickProgress.addEventListener(
+    "click",
+    function() {
 
-    progressPercentage.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+        progressPercentage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
 
-});
+    }
+);
 
-// ==========================
+
+// ==================================================
 // ENTER KEY - TASK
-// ==========================
+// ==================================================
 
 taskInput.addEventListener(
     "keydown",
@@ -689,9 +1007,9 @@ taskInput.addEventListener(
 );
 
 
-// ==========================
+// ==================================================
 // ENTER KEY - DEADLINE
-// ==========================
+// ==================================================
 
 deadlineInput.addEventListener(
     "keydown",
@@ -707,3 +1025,12 @@ deadlineInput.addEventListener(
 
     }
 );
+
+
+// ==================================================
+// INITIAL DISPLAY
+// ==================================================
+
+updateProgress();
+
+updateStudyGoal();

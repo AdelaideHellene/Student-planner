@@ -3,16 +3,16 @@
 // ==========================
 
 const subjectInput =
-    document.getElementById("subjectInput");
+document.getElementById("subjectInput");
 
 const addSubjectButton =
-    document.getElementById("addSubjectButton");
+document.getElementById("addSubjectButton");
 
 const subjectList =
-    document.getElementById("subjectList");
+document.getElementById("subjectList");
 
 const subjectDropdown =
-    document.getElementById("subjectDropdown");
+document.getElementById("subjectDropdown");
 
 
 // ==========================
@@ -20,19 +20,19 @@ const subjectDropdown =
 // ==========================
 
 const topicInput =
-    document.getElementById("topicInput");
+document.getElementById("topicInput");
 
 const sessionDate =
-    document.getElementById("sessionDate");
+document.getElementById("sessionDate");
 
 const sessionTime =
-    document.getElementById("sessionTime");
+document.getElementById("sessionTime");
 
 const addSessionButton =
-    document.getElementById("addSessionButton");
+document.getElementById("addSessionButton");
 
 const sessionList =
-    document.getElementById("sessionList");
+document.getElementById("sessionList");
 
 
 // ==========================
@@ -40,27 +40,21 @@ const sessionList =
 // ==========================
 
 let subjects =
-    JSON.parse(
-        localStorage.getItem("subjects")
-    ) || [];
-
+JSON.parse(
+    localStorage.getItem("subjects")
+) || [];
 
 let sessions =
-    JSON.parse(
-        localStorage.getItem("studySessions")
-    ) || [];
+JSON.parse(
+    localStorage.getItem("studySessions")
+) || [];
 
 
 // ==========================
-// DISPLAY SAVED SUBJECTS
+// DISPLAY SAVED DATA
 // ==========================
 
 displaySubjects();
-
-
-// ==========================
-// DISPLAY SAVED SESSIONS
-// ==========================
 
 displaySessions();
 
@@ -74,10 +68,8 @@ addSubjectButton.addEventListener(
     function() {
 
         const subjectName =
-            subjectInput.value.trim();
+        subjectInput.value.trim();
 
-
-        // Don't allow empty subjects
 
         if (subjectName === "") {
 
@@ -86,17 +78,15 @@ addSubjectButton.addEventListener(
         }
 
 
-        // Don't allow duplicate subjects
-
         const subjectExists =
-            subjects.some(
-                function(subject) {
+        subjects.some(
+            function(subject) {
 
-                    return subject.toLowerCase() ===
-                           subjectName.toLowerCase();
+                return subject.toLowerCase() ===
+                subjectName.toLowerCase();
 
-                }
-            );
+            }
+        );
 
 
         if (subjectExists) {
@@ -106,17 +96,11 @@ addSubjectButton.addEventListener(
         }
 
 
-        // Add subject
-
         subjects.push(subjectName);
-
 
         saveSubjects();
 
         displaySubjects();
-
-
-        // Clear input
 
         subjectInput.value = "";
 
@@ -150,12 +134,7 @@ subjectInput.addEventListener(
 
 function displaySubjects() {
 
-    // Clear current list
-
     subjectList.innerHTML = "";
-
-
-    // Clear dropdown
 
     subjectDropdown.innerHTML = `
         <option value="" selected disabled>
@@ -172,23 +151,25 @@ function displaySubjects() {
             // ==========================
 
             const listItem =
-                document.createElement("li");
+            document.createElement("li");
 
 
             const subjectText =
-                document.createElement("span");
+            document.createElement("span");
 
             subjectText.textContent =
-                subject;
+            subject;
 
 
-            // Delete button
+            // ==========================
+            // DELETE BUTTON
+            // ==========================
 
             const deleteButton =
-                document.createElement("button");
+            document.createElement("button");
 
             deleteButton.textContent =
-                "Delete";
+            "Delete";
 
 
             deleteButton.addEventListener(
@@ -196,14 +177,10 @@ function displaySubjects() {
                 function() {
 
                     const subjectIndex =
-                        subjects.indexOf(
-                            subject
-                        );
+                    subjects.indexOf(subject);
 
 
-                    if (
-                        subjectIndex !== -1
-                    ) {
+                    if (subjectIndex !== -1) {
 
                         subjects.splice(
                             subjectIndex,
@@ -221,7 +198,9 @@ function displaySubjects() {
             );
 
 
-            // Add elements
+            // ==========================
+            // ADD TO LIST
+            // ==========================
 
             listItem.appendChild(
                 subjectText
@@ -231,25 +210,23 @@ function displaySubjects() {
                 deleteButton
             );
 
-
             subjectList.appendChild(
                 listItem
             );
 
 
             // ==========================
-            // DROPDOWN OPTION
+            // ADD TO DROPDOWN
             // ==========================
 
             const option =
-                document.createElement("option");
-
+            document.createElement("option");
 
             option.value =
-                subject;
+            subject;
 
             option.textContent =
-                subject;
+            subject;
 
 
             subjectDropdown.appendChild(
@@ -270,9 +247,7 @@ function saveSubjects() {
 
     localStorage.setItem(
         "subjects",
-        JSON.stringify(
-            subjects
-        )
+        JSON.stringify(subjects)
     );
 
 }
@@ -287,19 +262,17 @@ addSessionButton.addEventListener(
     function() {
 
         const subject =
-            subjectDropdown.value;
+        subjectDropdown.value;
 
         const topic =
-            topicInput.value.trim();
+        topicInput.value.trim();
 
         const date =
-            sessionDate.value;
+        sessionDate.value;
 
         const time =
-            sessionTime.value;
+        sessionTime.value;
 
-
-        // Check required fields
 
         if (
             subject === "" ||
@@ -312,8 +285,6 @@ addSessionButton.addEventListener(
 
         }
 
-
-        // Create session
 
         const newSession = {
 
@@ -328,17 +299,12 @@ addSessionButton.addEventListener(
         };
 
 
-        sessions.push(
-            newSession
-        );
-
+        sessions.push(newSession);
 
         saveSessions();
 
         displaySessions();
 
-
-        // Clear inputs
 
         subjectDropdown.value = "";
 
@@ -361,27 +327,22 @@ function displaySessions() {
     sessionList.innerHTML = "";
 
 
-    // Sort sessions by date and time
-
     sessions.sort(
         function(a, b) {
 
             const firstSession =
-                new Date(
-                    `${a.date}T${a.time}`
-                );
+            new Date(
+                `${a.date}T${a.time}`
+            );
 
 
             const secondSession =
-                new Date(
-                    `${b.date}T${b.time}`
-                );
-
-
-            return (
-                firstSession -
-                secondSession
+            new Date(
+                `${b.date}T${b.time}`
             );
+
+
+            return firstSession - secondSession;
 
         }
     );
@@ -390,9 +351,7 @@ function displaySessions() {
     sessions.forEach(
         function(session) {
 
-            createSession(
-                session
-            );
+            createSession(session);
 
         }
     );
@@ -400,10 +359,14 @@ function displaySessions() {
 }
 
 
+// ==========================
+// CREATE SESSION
+// ==========================
+
 function createSession(session) {
 
     const listItem =
-        document.createElement("li");
+    document.createElement("li");
 
 
     // ==========================
@@ -411,39 +374,33 @@ function createSession(session) {
     // ==========================
 
     const sessionInfo =
-        document.createElement("div");
+    document.createElement("div");
 
     sessionInfo.classList.add(
         "session-info"
     );
 
 
-    // Subject
-
     const subject =
-        document.createElement("strong");
+    document.createElement("strong");
 
     subject.textContent =
-        session.subject;
+    session.subject;
 
-
-    // Topic
 
     const topic =
-        document.createElement("span");
+    document.createElement("span");
 
     topic.textContent =
-        session.topic;
+    session.topic;
 
-
-    // Date and time
 
     const dateTime =
-        document.createElement("small");
+    document.createElement("small");
 
     dateTime.textContent =
-        `📅 ${formatDate(session.date)}
-        • ⏰ ${formatTime(session.time)}`;
+    `📅 ${formatDate(session.date)}
+     • ⏰ ${formatTime(session.time)}`;
 
 
     // ==========================
@@ -451,7 +408,7 @@ function createSession(session) {
     // ==========================
 
     const status =
-        document.createElement("small");
+    document.createElement("small");
 
     status.classList.add(
         "session-status"
@@ -459,7 +416,7 @@ function createSession(session) {
 
 
     const today =
-        new Date();
+    new Date();
 
     today.setHours(
         0,
@@ -470,7 +427,7 @@ function createSession(session) {
 
 
     const sessionDay =
-        new Date(session.date);
+    new Date(session.date);
 
     sessionDay.setHours(
         0,
@@ -481,20 +438,20 @@ function createSession(session) {
 
 
     const difference =
-        sessionDay - today;
+    sessionDay - today;
 
 
     const daysRemaining =
-        Math.ceil(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
+    Math.ceil(
+        difference /
+        (1000 * 60 * 60 * 24)
+    );
 
 
     if (daysRemaining < 0) {
 
         status.textContent =
-            "⚪ Past";
+        "⚪ Past";
 
         status.classList.add(
             "past"
@@ -505,7 +462,7 @@ function createSession(session) {
     else if (daysRemaining === 0) {
 
         status.textContent =
-            "🔴 Today";
+        "🔴 Today";
 
         status.classList.add(
             "today"
@@ -516,7 +473,7 @@ function createSession(session) {
     else if (daysRemaining === 1) {
 
         status.textContent =
-            "🟡 Tomorrow";
+        "🟡 Tomorrow";
 
         status.classList.add(
             "tomorrow"
@@ -527,7 +484,7 @@ function createSession(session) {
     else {
 
         status.textContent =
-            "🟢 Upcoming";
+        "🟢 Upcoming";
 
         status.classList.add(
             "upcoming"
@@ -535,8 +492,6 @@ function createSession(session) {
 
     }
 
-
-    // Add information
 
     sessionInfo.appendChild(
         subject
@@ -560,10 +515,10 @@ function createSession(session) {
     // ==========================
 
     const deleteButton =
-        document.createElement("button");
+    document.createElement("button");
 
     deleteButton.textContent =
-        "Delete";
+    "Delete";
 
 
     deleteButton.addEventListener(
@@ -571,14 +526,10 @@ function createSession(session) {
         function() {
 
             const sessionIndex =
-                sessions.indexOf(
-                    session
-                );
+            sessions.indexOf(session);
 
 
-            if (
-                sessionIndex !== -1
-            ) {
+            if (sessionIndex !== -1) {
 
                 sessions.splice(
                     sessionIndex,
@@ -624,9 +575,7 @@ function saveSessions() {
 
     localStorage.setItem(
         "studySessions",
-        JSON.stringify(
-            sessions
-        )
+        JSON.stringify(sessions)
     );
 
 }
@@ -639,7 +588,7 @@ function saveSessions() {
 function formatDate(date) {
 
     const dateObject =
-        new Date(date);
+    new Date(date);
 
 
     return dateObject.toLocaleDateString(
@@ -661,11 +610,11 @@ function formatDate(date) {
 function formatTime(time) {
 
     const [hours, minutes] =
-        time.split(":");
+    time.split(":");
 
 
     const date =
-        new Date();
+    new Date();
 
 
     date.setHours(
@@ -684,34 +633,44 @@ function formatTime(time) {
 
 }
 
-// ==========================
+
+// ==================================================
 // STUDY TIMER
-// ==========================
+// ==================================================
 
 const timerMinutes =
-    document.getElementById("timerMinutes");
+document.getElementById("timerMinutes");
 
 const timerSeconds =
-    document.getElementById("timerSeconds");
+document.getElementById("timerSeconds");
 
 const timerStatus =
-    document.getElementById("timerStatus");
+document.getElementById("timerStatus");
 
 const startTimerButton =
-    document.getElementById("startTimerButton");
+document.getElementById("startTimerButton");
 
 const pauseTimerButton =
-    document.getElementById("pauseTimerButton");
+document.getElementById("pauseTimerButton");
 
 const resetTimerButton =
-    document.getElementById("resetTimerButton");
+document.getElementById("resetTimerButton");
 
 
-// Timer starts at 25 minutes
+// ==========================
+// TIMER SETTINGS
+// ==========================
 
-let timeRemaining = 25 * 60;
+const TIMER_DURATION =
+25 * 60;
 
-let timerInterval = null;
+
+let timeRemaining =
+TIMER_DURATION;
+
+
+let timerInterval =
+null;
 
 
 // ==========================
@@ -721,18 +680,27 @@ let timerInterval = null;
 function updateTimerDisplay() {
 
     const minutes =
-        Math.floor(timeRemaining / 60);
+    Math.floor(
+        timeRemaining / 60
+    );
+
 
     const seconds =
-        timeRemaining % 60;
+    timeRemaining % 60;
 
 
     timerMinutes.textContent =
-        String(minutes).padStart(2, "0");
+    String(minutes).padStart(
+        2,
+        "0"
+    );
 
 
     timerSeconds.textContent =
-        String(seconds).padStart(2, "0");
+    String(seconds).padStart(
+        2,
+        "0"
+    );
 
 }
 
@@ -745,20 +713,20 @@ startTimerButton.addEventListener(
     "click",
     function() {
 
-        // Prevent multiple timers
-        // running at the same time
-
         if (timerInterval !== null) {
+
             return;
+
         }
 
 
         timerStatus.textContent =
-            "Stay focused! 📚";
+        "Stay focused! 📚";
 
 
         timerInterval =
-            setInterval(function() {
+        setInterval(
+            function() {
 
                 if (timeRemaining > 0) {
 
@@ -768,21 +736,29 @@ startTimerButton.addEventListener(
 
                 }
 
-
                 else {
 
-                    clearInterval(timerInterval);
+                    clearInterval(
+                        timerInterval
+                    );
 
-                    timerInterval = null;
+                    timerInterval =
+                    null;
 
 
                     timerStatus.textContent =
-                        "🎉 Study session complete!";
+                    "🎉 Study session complete!";
 
+
+                    addStudyMinutes(
+                        TIMER_DURATION / 60
+                    );
 
                 }
 
-            }, 1000);
+            },
+            1000
+        );
 
     }
 );
@@ -798,13 +774,16 @@ pauseTimerButton.addEventListener(
 
         if (timerInterval !== null) {
 
-            clearInterval(timerInterval);
+            clearInterval(
+                timerInterval
+            );
 
-            timerInterval = null;
+            timerInterval =
+            null;
 
 
             timerStatus.textContent =
-                "Timer paused ⏸️";
+            "Timer paused ⏸️";
 
         }
 
@@ -820,26 +799,68 @@ resetTimerButton.addEventListener(
     "click",
     function() {
 
-        clearInterval(timerInterval);
+        clearInterval(
+            timerInterval
+        );
 
-        timerInterval = null;
+        timerInterval =
+        null;
 
 
-        timeRemaining = 25 * 60;
+        timeRemaining =
+        TIMER_DURATION;
 
 
         updateTimerDisplay();
 
 
         timerStatus.textContent =
-            "Ready to focus? 📚";
+        "Ready to focus? 📚";
 
     }
 );
 
 
 // ==========================
-// INITIAL DISPLAY
+// ADD STUDY MINUTES
+// ==========================
+
+function addStudyMinutes(minutes) {
+
+    const today =
+    new Date().toISOString().split("T")[0];
+
+
+    let studyData =
+    JSON.parse(
+        localStorage.getItem(
+            "studyData"
+        )
+    ) || {};
+
+
+    if (
+        !studyData[today]
+    ) {
+
+        studyData[today] = 0;
+
+    }
+
+
+    studyData[today] += minutes;
+
+
+    localStorage.setItem(
+        "studyData",
+        JSON.stringify(studyData)
+    );
+
+}
+
+
+// ==========================
+// INITIAL TIMER DISPLAY
 // ==========================
 
 updateTimerDisplay();

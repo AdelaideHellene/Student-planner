@@ -156,16 +156,19 @@ DASHBOARD GRID
 }
 
 
+
 /* ==========================
 TASK AREA
 ========================== */
 
 .task-area {
+
     display: flex;
 
     flex-direction: column;
 
-    gap: 25px;
+    height: 100%;
+
 }
 
 
@@ -174,13 +177,21 @@ TASK CONTAINER
 ========================== */
 
 .task-container {
-    background: #EEE1C5;
+
+    background: white;
 
     border-radius: 25px;
 
     padding: 25px;
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
 }
 
 
@@ -189,54 +200,63 @@ TASK CARD
 ========================== */
 
 .task-card {
-    background: #EEE1C5;
+
+    background: white;
 
     border-radius: 20px;
 
-    padding: 10px;
+    padding: 25px;
 
     transition: 0.25s;
+
 }
 
+
+.task-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
 .task-card h3 {
+
     color: #6B4F5F;
 
     margin-bottom: 20px;
+
 }
 
 
-/* Task input */
+/* ==========================
+TASK INPUT
+========================== */
 
 .taskinput-section {
+
     display: flex;
 
     gap: 10px;
+
 }
 
+
 .taskinput-section input {
+
     flex: 1;
 
-    padding: 12px 14px;
+    padding: 12px;
 
     border-radius: 10px;
 
     border: 1px solid #DDD;
 
-    font-size: 14px;
-
-    outline: none;
-
-    transition: 0.2s;
 }
 
-.taskinput-section input:focus {
-    border-color: #6B4F5F;
-
-    box-shadow: 0 0 0 3px rgba(107, 79, 95, 0.1);
-}
 
 .taskinput-section button {
-    padding: 12px 20px;
+
+    padding: 12px 18px;
 
     border: none;
 
@@ -248,13 +268,6 @@ TASK CARD
 
     cursor: pointer;
 
-    transition: 0.25s;
-}
-
-.taskinput-section button:hover {
-    background: #4F3946;
-
-    transform: translateY(-2px);
 }
 
 
@@ -263,95 +276,89 @@ TASK LIST
 ========================== */
 
 .tasklist-section {
-    margin-top: 25px;
+
+    margin-top: 10px;
+
+    flex: 1;
+
 }
+
 
 .tasklist-section ul {
+
     list-style: none;
+
 }
 
+
 .tasklist-section li {
+
     display: flex;
 
     align-items: center;
 
-    gap: 12px;
+    gap: 10px;
 
     background: #FFFCF4;
 
-    padding: 13px 15px;
+    padding: 12px 15px;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     margin-bottom: 12px;
 
-    border: 1px solid #EEE1C5;
-
-    transition: 0.25s;
-}
-
-.tasklist-section li:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 
 /* Checkbox */
 
 .task-checkbox {
+
     width: 18px;
 
     height: 18px;
 
     cursor: pointer;
 
-    accent-color: #6B4F5F;
-
-    flex-shrink: 0;
 }
 
 
 /* Task text */
 
 .tasklist-section li span {
+
     flex: 1;
 
-    line-height: 1.4;
 }
 
 
 /* Completed task */
 
 .tasklist-section li.completed span {
+
     text-decoration: line-through;
 
-    opacity: 0.55;
+    opacity: 0.6;
+
 }
 
 
 /* Delete button */
 
 .tasklist-section li button {
-    padding: 7px 11px;
+
+    padding: 6px 10px;
 
     border: none;
 
     border-radius: 8px;
 
-    background: #4d3844;
+    background: #28324A;
 
     color: white;
 
     cursor: pointer;
 
-    transition: 0.25s;
-
-    flex-shrink: 0;
-}
-
-.tasklist-section li button:hover {
-    background: #3b2f37;
 }
 
 
@@ -660,6 +667,355 @@ QUICK ACTIONS
 
     transform: translateY(-3px);
 }
+
+
+/* ==========================
+DAILY STUDY GOAL
+========================== */
+
+.study-goal-card {
+
+    background: linear-gradient(
+        145deg,
+        #F7F2E8,
+        #EEE1C5
+    );
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+    transition: 0.25s;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+.study-goal-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.10);
+
+}
+
+
+/* Decorative circle */
+
+.study-goal-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: rgba(107,79,95,0.08);
+
+    right: -35px;
+
+    top: -35px;
+
+}
+
+
+
+/* ==========================
+HEADER
+========================== */
+
+.study-goal-header {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+.study-goal-header h3 {
+
+    color: #6B4F5F;
+
+    margin-bottom: 6px;
+
+    font-size: 18px;
+
+}
+
+
+.study-goal-header p {
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+
+/* ==========================
+GOAL SETUP
+========================== */
+
+.goal-setup {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 20px;
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+.goal-setup input {
+
+    width: 65px;
+
+    padding: 9px;
+
+    border: 1px solid #D8CEC2;
+
+    border-radius: 9px;
+
+    background: white;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #4A3B45;
+
+    outline: none;
+
+}
+
+
+.goal-setup input:focus {
+
+    border-color: #6B4F5F;
+
+}
+
+
+.goal-setup span {
+
+    color: #6B4F5F;
+
+    font-size: 13px;
+
+}
+
+
+.goal-setup button {
+
+    margin-left: auto;
+
+    padding: 9px 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #28324A;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.25s;
+
+}
+
+
+.goal-setup button:hover {
+
+    background: #41517A;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* ==========================
+GOAL PROGRESS
+========================== */
+
+.study-goal-progress {
+
+    margin-top: 22px;
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+.goal-numbers {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 4px;
+
+    color: #4A3B45;
+
+}
+
+
+.goal-numbers strong {
+
+    font-size: 30px;
+
+    color: #28324A;
+
+}
+
+
+.goal-numbers span {
+
+    font-size: 14px;
+
+    color: #777;
+
+}
+
+
+/* Progress bar */
+
+.goal-progress-bar {
+
+    width: 100%;
+
+    height: 13px;
+
+    background: rgba(255,255,255,0.7);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin: 10px 0 7px;
+
+}
+
+
+.goal-progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #6B4F5F;
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
+
+}
+
+
+#goalProgressText {
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+
+
+/* ==========================
+STREAK
+========================== */
+
+.streak-section {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding: 13px 15px;
+
+    background: rgba(255,255,255,0.75);
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(107,79,95,0.08);
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+.streak-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #F4DCE6;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+}
+
+
+.streak-section strong {
+
+    color: #6B4F5F;
+
+    font-size: 15px;
+
+}
+
+
+.streak-section p {
+
+    color: #777;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+
+}
+
+
 
 
 /* ==========================
