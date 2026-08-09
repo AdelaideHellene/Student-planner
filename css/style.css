@@ -59,55 +59,45 @@ main {
 /* Splash logo */
 
 .splash-logo {
-
     width: 40vw;
-
     max-width: 430px;
-
     height: auto;
-
     margin-bottom: 20px;
 
     opacity: 0;
-
     transform: scale(0.95);
 
     transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
+.splash-logo.show {
+    opacity: 1;
+    transform: scale(1);
 }
 
 
 /* Start button */
 
 #start-button {
-
     background-color: #28324A;
-
     padding: 12px 25px;
-
     border-radius: 10px;
-
     border: none;
-
     cursor: pointer;
-
     color: white;
-
     font-size: medium;
 
-    transition: opacity 0.5s;
-
     width: 285px;
-
     height: 54px;
 
     opacity: 0;
-
+    transition: opacity 0.5s;
 }
 
+#start-button.show {
+    opacity: 1;
+}
 
 #start-button:hover {
-
     background-color: #41517A;
-
 }
